@@ -1,3 +1,28 @@
 {
-  "rewrites": []
+  "rewrites": [
+    {
+      "source": "/companies",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/saved-jobs",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/auth",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/auth/(.*)",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/profile",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/career-tips",
+      "destination": "/index.html"
+    }
+  ]
 }
