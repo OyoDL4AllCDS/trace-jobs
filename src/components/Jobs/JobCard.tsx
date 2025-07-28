@@ -79,8 +79,8 @@ const JobCard = ({ job, index = 0 }: JobCardProps) => {
   };
 
   const cardContent = (
-    <Card className={`group ${getCardColor(index)} hover:shadow-card transition-all duration-300 hover:scale-[1.02] cursor-pointer`}>
-      <CardContent className="p-6">
+    <Card className={`group ${getCardColor(index)} hover:shadow-card transition-all duration-300 hover:scale-[1.02] cursor-pointer h-80`}>
+      <CardContent className="p-6 h-full flex flex-col">
         <div className="flex items-start justify-between mb-4">
           <div className="flex-1">
             <h3 className="font-semibold text-lg text-foreground group-hover:text-primary transition-colors line-clamp-2">
@@ -131,7 +131,7 @@ const JobCard = ({ job, index = 0 }: JobCardProps) => {
           )}
         </div>
 
-        <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
+        <p className="text-sm text-muted-foreground mb-4 line-clamp-3 flex-grow">
           {job.description}
         </p>
 
@@ -141,20 +141,9 @@ const JobCard = ({ job, index = 0 }: JobCardProps) => {
             <BookOpen className="h-3 w-3 mr-1" />
             {job.literacyLevel} Level
           </Badge>
-          {job.tags.slice(0, 3).map((tag) => (
-            <Badge key={tag} variant="outline" className="text-xs">
-              {tag}
-            </Badge>
-          ))}
-          {job.tags.length > 3 && (
-            <Badge variant="outline" className="text-xs">
-              +{job.tags.length - 3} more
-            </Badge>
-          )}
         </div>
 
-        {/* Footer */}
-        <div className="flex items-center justify-between pt-4 border-t border-border/50">
+        <div className="flex items-center justify-between pt-4 border-t border-border/50 mt-auto">
           <div className="flex items-center text-xs text-muted-foreground">
             <Clock className="h-3 w-3 mr-1" />
             <span>{job.postedTime}</span>
