@@ -2,6 +2,7 @@ import { MapPin, Clock, DollarSign, Building, BookOpen, Users, Bookmark } from "
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { useAuth } from "@/contexts/AuthContext";
 import { useSavedJobs } from "@/hooks/useSavedJobs";
 import { useNavigate } from "react-router-dom";
@@ -71,10 +72,10 @@ const JobCard = ({ job, index = 0 }: JobCardProps) => {
 
   const getWorkArrangementColor = (arrangement: string) => {
     switch (arrangement) {
-      case 'Remote': return 'bg-primary/10 text-primary border-primary/20';
-      case 'Hybrid': return 'bg-accent/10 text-accent border-accent/20';
-      case 'Onsite': return 'bg-muted/60 text-muted-foreground border-border';
-      default: return 'bg-muted/60 text-muted-foreground border-border';
+      case 'Remote': return 'bg-primary/10 text-primary border-primary/20 hover:text-white hover:bg-primary';
+      case 'Hybrid': return 'bg-accent/10 text-accent border-accent/20 hover:text-white hover:bg-accent';
+      case 'Onsite': return 'bg-muted/60 text-muted-foreground border-border hover:text-white hover:bg-muted-foreground';
+      default: return 'bg-muted/60 text-muted-foreground border-border hover:text-white hover:bg-muted-foreground';
     }
   };
 
@@ -92,22 +93,29 @@ const JobCard = ({ job, index = 0 }: JobCardProps) => {
             </div>
           </div>
           <div className="flex items-center space-x-2">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={handleBookmark}
-              className="h-8 w-8 p-0 hover:bg-primary/10"
-            >
-              <Bookmark 
-                className={`h-4 w-4 transition-colors ${
-                  user && isJobSaved(job.id) 
-                    ? 'fill-primary text-primary' 
-                    : 'text-muted-foreground hover:text-primary'
-                }`} 
-              />
-            </Button>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={handleBookmark}
+                  className="h-8 w-8 p-0 hover:bg-primary/10"
+                >
+                  <Bookmark 
+                    className={`h-4 w-4 transition-colors ${
+                      user && isJobSaved(job.id) 
+                        ? 'fill-primary text-primary' 
+                        : 'text-muted-foreground hover:text-primary'
+                    }`} 
+                  />
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent sideOffset={4}>
+                <p>Save Job</p>
+              </TooltipContent>
+            </Tooltip>
             <Badge 
-              className={`${getWorkArrangementColor(job.workArrangement)} font-medium`}
+              className={`${getWorkArrangementColor(job.workArrangement)} font-medium transition-colors`}
             >
               {job.workArrangement}
             </Badge>
