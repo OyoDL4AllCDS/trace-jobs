@@ -42,7 +42,7 @@ export default function Auth() {
         email,
         password,
         options: {
-          emailRedirectTo: "https://jobs-trace-hub.vercel.app/",
+          emailRedirectTo: "https://jobs-trace.vercel.app/",
           data: {
             display_name: displayName
           }
