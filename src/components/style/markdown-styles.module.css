@@ -1,0 +1,35 @@
+.markdown {
+  @apply text-base leading-relaxed;
+}
+
+.markdown h1 {
+  @apply text-3xl font-bold my-4;
+}
+
+.markdown h2 {
+  @apply text-2xl font-bold mt-8 mb-3;
+}
+
+.markdown h3 {
+  @apply text-xl font-semibold mt-4 mb-2;
+}
+
+.markdown h4 {
+  @apply mb-2;
+}
+
+.markdown h5 {
+  @apply ps-3 mb-2;
+}
+
+.markdown ul {
+  @apply list-disc list-inside my-4 ps-4 space-y-1;
+}
+
+.markdown ol {
+  @apply list-decimal list-inside my-4 ps-4 space-y-1;
+}
+
+.markdown p {
+  @apply pt-1.5
+}
