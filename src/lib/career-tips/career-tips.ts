@@ -330,8 +330,8 @@ export function getCareerTipsFiltered(
       (tip) =>
         tip.title.toLowerCase().includes(lowercaseQuery) ||
         tip.excerpt.toLowerCase().includes(lowercaseQuery) ||
-        tip.tags.some((tag) => tag.toLowerCase().includes(lowercaseQuery)) ||
-        tip.content.toLowerCase().includes(lowercaseQuery)
+        tip.tags.some((tag) => tag.toLowerCase().includes(lowercaseQuery))
+        // tip.content.toLowerCase().includes(lowercaseQuery)
     );
   }
 
