@@ -65,8 +65,12 @@ export default function CareerTipDetail () {
             Back to Career Tips
           </Button>
 
-          <article className="bg-muted/30 rounded-lg shadow-sm p-8">
-            <header className="mb-8">
+          <article className="bg-muted/30 rounded-lg shadow-sm overflow-hidden">
+          <div className="aspect-video w-full overflow-hidden">
+              <img src={tip.image || "/placeholder.svg"} alt={tip.title} className="w-full h-full object-cover" />
+            </div>
+          <div className="p-8">
+            <header>
               <div className="flex items-center gap-4 mb-4">
                 <Badge className={getCategoryColor(tip.category)}>{tip.category.replace("-", " ")}</Badge>
                 <div className="flex items-center text-sm text-gray-500">
@@ -100,6 +104,7 @@ export default function CareerTipDetail () {
 
             <div className={`${markdownStyles["markdown"]}`}>
               <Markdown>{tip.content}</Markdown>
+            </div>
             </div>
           </article>
 

@@ -2,6 +2,7 @@ export interface CareerTip {
   id: string
   title: string
   slug: string
+  image?: string
   category: "interview" | "resume" | "networking" | "skills" | "career-growth" | "all"
   excerpt: string
   content: string
@@ -15,6 +16,7 @@ export const careerTips: CareerTip[] = [
     id: "1",
     title: "How to Ace Your Next Technical Interview",
     slug: "ace-technical-interview",
+    image: "/career-tips-images/ace-technical-interview.png",
     category: "interview",
     excerpt: "Master the art of technical interviews with these proven strategies and preparation techniques.",
     content: `
@@ -78,6 +80,7 @@ Need more help with the job-seeking process? Take a look through our **[Career C
     id: "2",
     title: "Building a Standout Developer Resume",
     slug: "standout-developer-resume",
+    image: "/career-tips-images/standout-developer-resume.webp",
     category: "resume",
     excerpt: "Learn how to craft a developer resume that gets noticed by recruiters and hiring managers.",
     content: `
@@ -133,6 +136,7 @@ Include 2-3 relevant projects: a brief description of what it does; the technolo
     id: "3",
     title: "Networking for Introverted Developers",
     slug: "networking-for-introverts",
+    image: "/career-tips-images/networking-for-introverts.png",
     category: "networking",
     excerpt: "Discover effective networking strategies that work for introverted developers and tech professionals.",
     content: `
@@ -197,6 +201,7 @@ Your unique strength as an introverted developer is your ability to listen deepl
     id: "4",
     title: "Essential Skills for Modern Developers",
     slug: "essential-modern-developer-skills",
+    image: "/career-tips-images/essential-modern-developer-skills.webp",
     category: "skills",
     excerpt: "Stay competitive in the tech industry by developing these crucial technical and soft skills.",
     content: `
@@ -260,7 +265,8 @@ The key is to balance continuous learning with practical application. Focus on s
   {
     id: "5",
     title: "From Employee to Leader: A Guide to Career Advancement",
-    slug: "from-employer-to-leader",
+    slug: "from-employee-to-leader",
+    image: "/career-tips-images/from-employee-to-leader.png",
     category: "career-growth",
     excerpt: "Strategic advice for advancing your developer career, from junior to senior and beyond.",
     content: `
