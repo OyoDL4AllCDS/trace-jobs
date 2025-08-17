@@ -39,8 +39,8 @@ Before you begin, ensure you have the following installed:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/kwiksearch-naija-jobs-hub.git
-cd kwiksearch-naija-jobs-hub
+git clone https://github.com/OyoDL4AllCDS/trace-jobs.git
+cd trace-jobs
 ```
 
 ### 2. Install Dependencies
