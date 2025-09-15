@@ -6,8 +6,6 @@ export interface CareerTip {
   category: "interview" | "resume" | "networking" | "skills" | "career-growth" | "all"
   excerpt: string
   content: string
-  readTime: number
-  tags: string[]
   publishedAt: string
 }
 
@@ -72,8 +70,6 @@ With the tips and resources provided above, you’ll be sure to pass your next t
 
 Need more help with the job-seeking process? Take a look through our **[Career Center](https://jobs-trace-hub.vercel.app/career-tips)**. You’ll find tips from recruiters in the tech industry, workspaces you can use to build projects and level up your coding skills, helpful resources to prepare you for technical interviews, and more.
     `,
-    readTime: 20,
-    tags: ["technical-interview", "coding", "preparation", "communication"],
     publishedAt: "2024-08-11",
   },
   {
@@ -128,8 +124,6 @@ Include 2-3 relevant projects: a brief description of what it does; the technolo
 
 **Remember**: Your resume should tell a story of your growth as a developer and make the hiring manager want to learn more about you. Employers are not just hiring a set of skills; they are investing in a future colleague who will contribute to their team’s success. By presenting yourself as a capable, motivated, and adaptable candidate with a positive attitude, you position yourself as the ideal choice. Prepare well, stay authentic, and you’ll not only meet employers’ expectations
     `,
-    readTime: 20,
-    tags: ["resume", "job-search", "career-advice", "professional-development"],
     publishedAt: "2024-08-11",
   },
   {
@@ -193,8 +187,6 @@ When you do find yourself in a face-to-face setting (like a conference or meet-u
 
 Your unique strength as an introverted developer is your ability to listen deeply and build meaningful connections one at a time. By focusing on genuine engagement, leveraging online communities, and being intentional with your interactions, you can build a powerful and supportive network that will accelerate your career.
     `,
-    readTime: 25,
-    tags: ["networking", "introvert", "career-development", "professional-growth"],
     publishedAt: "2024-08-11",
   },
   {
@@ -258,8 +250,6 @@ The tech industry is a dynamic environment. The best developers are lifelong lea
 
 The key is to balance continuous learning with practical application. Focus on skills that align with your career goals while staying adaptable to industry changes.
     `,
-    readTime: 18,
-    tags: ["skills", "career-development", "technical-skills", "soft-skills", "continuous-learning"],
     publishedAt: "2024-08-11",
   },
   {
@@ -285,8 +275,6 @@ Once you have the opportunity to lead, focus on these critical areas to ensure a
 
 Leadership is a continuous journey of learning and growth. To solidify your role and become an inspiring leader, you must **empower your team.** Give them autonomy and ownership over their work, and trust them to make decisions. This not only builds their confidence but also frees you up to focus on strategic initiatives. Remember to **prioritize people over processes.** While efficient workflows are important, your people are your greatest asset. Invest time in understanding their career goals, providing mentorship, and celebrating their successes. Ultimately, a great leader **leads by example.** Your actions speak louder than your words, so demonstrate the work ethic, integrity, and passion you want to see in your team.
     `,
-    readTime: 12,
-    tags: ["career-growth", "leadership", "professional-development", "career-planning"],
     publishedAt: "2024-08-11",
   },
 ]
@@ -309,7 +297,6 @@ export function searchCareerTips(query: string): CareerTip[] {
     (tip) =>
       tip.title.toLowerCase().includes(lowercaseQuery) ||
       tip.excerpt.toLowerCase().includes(lowercaseQuery) ||
-      tip.tags.some((tag) => tag.toLowerCase().includes(lowercaseQuery)) ||
       tip.content.toLowerCase().includes(lowercaseQuery),
   )
 }
@@ -329,8 +316,7 @@ export function getCareerTipsFiltered(
     tips = tips.filter(
       (tip) =>
         tip.title.toLowerCase().includes(lowercaseQuery) ||
-        tip.excerpt.toLowerCase().includes(lowercaseQuery) ||
-        tip.tags.some((tag) => tag.toLowerCase().includes(lowercaseQuery))
+        tip.excerpt.toLowerCase().includes(lowercaseQuery)
         // tip.content.toLowerCase().includes(lowercaseQuery)
     );
   }

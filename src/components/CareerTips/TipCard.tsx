@@ -1,5 +1,4 @@
 import { type CareerTip } from "@/lib/career-tips/career-tips";
-import { Clock } from "lucide-react";
 import { Badge } from "../ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
 import { useNavigate } from "react-router-dom";
@@ -28,7 +27,7 @@ export default function TipCard ({ tip }: TipCardProps) {
             className="h-full hover:shadow-lg transition-shadow cursor-pointer bg-muted/30"
             onClick={() => navigate(`/career-tips/${tip.slug}`)}
         >
-            <div className="aspect-video w-full overflow-hidden">
+            <div className="aspect-square w-full overflow-hidden">
                 <img
                     src={tip.image || "/placeholder.svg"}
                     alt={tip.title}
@@ -38,27 +37,11 @@ export default function TipCard ({ tip }: TipCardProps) {
             <CardHeader>
                 <div className="flex items-start justify-between mb-2">
                     <Badge className={getCategoryColor(tip.category)}>{tip.category.replace("-", " ")}</Badge>
-                    <div className="flex items-center text-sm text-gray-500">
-                        <Clock className="h-3 w-3 mr-1" />
-                        {tip.readTime} min
-                    </div>
                 </div>
                 <CardTitle className="text-lg leading-tight">{tip.title}</CardTitle>
                 <CardDescription className="text-sm">{tip.excerpt}</CardDescription>
             </CardHeader>
             <CardContent>
-                <div className="flex flex-wrap gap-1 mb-3">
-                    {tip.tags.slice(0, 3).map((tag) => (
-                        <Badge key={tag} variant="secondary" className="text-xs">
-                            {tag}
-                        </Badge>
-                    ))}
-                    {tip.tags.length > 3 && (
-                        <Badge variant="secondary" className="text-xs">
-                            +{tip.tags.length - 3}
-                        </Badge>
-                    )}
-                </div>
                 <p className="text-xs text-gray-500">Published {new Date(tip.publishedAt).toLocaleDateString()}</p>
             </CardContent>
         </Card>

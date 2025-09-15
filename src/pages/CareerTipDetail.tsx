@@ -3,7 +3,7 @@ import markdownStyles from "@/components/style/markdown-styles.module.css"
 import { useParams, useNavigate } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { ArrowLeft, Clock, Calendar, Share2 } from "lucide-react"
+import { ArrowLeft, Calendar, Share2 } from "lucide-react"
 import { getCareerTipBySlug, type CareerTip } from "@/lib/career-tips/career-tips"
 
 export default function CareerTipDetail () {
@@ -74,11 +74,7 @@ export default function CareerTipDetail () {
               <div className="flex items-center gap-4 mb-4">
                 <Badge className={getCategoryColor(tip.category)}>{tip.category.replace("-", " ")}</Badge>
                 <div className="flex items-center text-sm text-gray-500">
-                  <Clock className="h-4 w-4 mr-1" />
-                  {tip.readTime} min read
-                </div>
-                <div className="flex items-center text-sm text-gray-500">
-                  <Calendar className="h-4 w-4 mr-1" />
+                  <Calendar className="h-4 w-4 mr-1" />git 
                   {new Date(tip.publishedAt).toLocaleDateString()}
                 </div>
               </div>
@@ -88,13 +84,6 @@ export default function CareerTipDetail () {
               <p className="text-xl text-gray-600 mb-6">{tip.excerpt}</p>
 
               <div className="flex items-center justify-between">
-                <div className="flex flex-wrap gap-2">
-                  {tip.tags.map((tag) => (
-                    <Badge key={tag} variant="secondary">
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
                 <Button onClick={handleShare} variant="outline" size="sm">
                   <Share2 className="h-4 w-4 mr-2" />
                   Share
