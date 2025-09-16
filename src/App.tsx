@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Auth from "./pages/Auth";
@@ -11,12 +11,13 @@ import CheckEmail from "./pages/CheckEmail";
 import ResetPassword from "./pages/ResetPassword";
 import SavedJobs from "./pages/SavedJobs";
 import Profile from "./pages/Profile";
+import CareerTips from "./pages/CareerTips"
+import CareerTipDetail from "./pages/CareerTipDetail"
 import Header from "@/components/Layout/Header";
 import Footer from "./pages/Footer"
 import { useState, useEffect } from "react";
 import { Loader2 } from "lucide-react";
 import { AuthProvider } from "@/contexts/AuthContext";
-import CareerTips from "./pages/CareerTips";
 
 const queryClient = new QueryClient();
 
@@ -64,6 +65,7 @@ const App = () => {
               <Route path="/auth/check-email" element={<CheckEmail />} />
               <Route path="/auth/reset-password" element={<ResetPassword />} />
               <Route path="/career-tips" element={<CareerTips />} />
+              <Route path="/career-tips/:slug" element={<CareerTipDetail />} />
               <Route path="/saved-jobs" element={<SavedJobs />} />
               <Route path="/profile" element={<Profile />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
